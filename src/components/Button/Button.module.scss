@@ -1,0 +1,12 @@
+.button{
+    border: thin solid;
+    padding: 0.25em 1.25rem;
+    border-radius: 4px;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+
+    &:hover{
+        background-color: black;
+        color: white;
+    }
+}
