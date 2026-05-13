@@ -1,14 +1,10 @@
-export type Type = 
-"SET_NAME" |
-"SET_TYPE" |
-"SET_EMAIL"
+import type { User } from "../../../types"
 
-export interface AddFormActions {
-    type: Type,
-    data: string
-}
+export type Action = 
+{ type: "SET_FIELD", field: "name" | "bill_type" | "email", value: string }
 
 
 export interface AddFormProps {
-    toCloseAddModal: () => void
+    toCloseAddModal: () => void,
+    toSetUsersFn: (users: User[]) => void,
 }

@@ -3,11 +3,11 @@ import type { TableProps } from "./Table.types";
 import TableBody from "./TableBody/TableBody";
 import TableHead from "./TableHead/TableHead";
 
-const Table = ({ tableHeads }: TableProps) => {
+const Table = ({ tableHeads, tableBody, addBillTogglerFn }: TableProps) => {
   return (
     <table className={styles.table}>
       <TableHead heads={tableHeads}/>
-      <TableBody />
+      <TableBody data={tableBody} addBillTogglerFn={addBillTogglerFn}/>
     </table>
   )
 }

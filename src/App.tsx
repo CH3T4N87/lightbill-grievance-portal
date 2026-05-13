@@ -21,13 +21,13 @@ const App = () => {
 
   return (
     <div className={styles.container}>
-      <Button onClick={() => dispatch({ type: "SET_IS_ADMIN" })}>
+      <div> <Button onClick={() => dispatch({ type: "SET_IS_ADMIN" })}>
         Admin
       </Button>
 
-      <Button onClick={() => dispatch({ type: "SET_IS_CUSTOMERSUPPORT" })}>
-        Customer Support
-      </Button >
+        <Button onClick={() => dispatch({ type: "SET_IS_CUSTOMERSUPPORT" })}>
+          Customer Support
+        </Button ></div>
 
       {state ? <AdminPanel /> : <CustomerSupport />}
     </div>

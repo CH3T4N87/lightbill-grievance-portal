@@ -1,36 +1,50 @@
-export type Type = "normal" | "industry" | "solar";
-export interface User {
-    id?: number
-    name: string,
-    bill_type: Type,
-    email: string
-}
+import axios, { type AxiosInstance } from "axios";
+import type { Bill, User } from "../types";
 
-const baseUrl = "https://mbcgb624-8000.inc1.devtunnels.ms/"; 
-const getIssues = async () => {
-    const response = await fetch(`${baseUrl}`);
-    console.log(response)
-    const data = await response.json();
-    console.log(data);
+export type Type = "normal" | "industry" | "solar";
+
+
+const api: AxiosInstance = axios.create({
+    baseURL: "https://mbcgb624-8000.inc1.devtunnels.ms",
+    headers: {
+        "Content-Type": "application/json"
+    },
+})
+
+
+const getUsers = async (): Promise<User[] | undefined> => {
+    try{
+        const response = await api.get('/get-users');
+        return response.data
+    }catch(error){
+        console.error("Fetching err:", error);
+    }
 }
 const postUser = async (newUser: User) => {
+    console.log("newUser :", newUser);
     try {
-        const response = await fetch(`${baseUrl}`, {
-            method: "POST",
-            headers: {
-                'Content-Type' : 'application/json'
-            },
-            body: JSON.stringify(newUser)
-        });
+        const response = await api.post('/add-user', newUser);
         if (response.status === 201) {
-            alert("User Has been Registered Successfully");
+            alert("User Has Been Registered Successfully");
         }
     } catch (e) {
         console.warn(e);
     }
 }
 
+const postBill = async (newBill: Bill) => {
+    try{
+        const response = await api.post("/add-bill", newBill);
+        if(response.status === 201){
+            alert("Bill added successfully !!");
+        }
+    }catch(e){
+        console.warn(e);
+    }
+}
+
 export default {
-    getIssues,
-    postUser
+    getUsers,
+    postUser,
+    postBill
 }
