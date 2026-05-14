@@ -2,7 +2,7 @@ import styles from "./CustomerSupport.module.scss";
 const CustomerSupport = () => {
   return (
     <main className={styles.CustomerSupport}>
-      <img src="https://picsum.photos/200" alt="" />
+      Lunch break chal rha, bad me aao....
     </main>
   )
 }

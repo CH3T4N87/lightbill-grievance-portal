@@ -1,0 +1,16 @@
+.LoginForm{
+    background-color: #e1e1e1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+    border: thin solid;
+    width: 25%;
+}
+
+.LoginForm input, .LoginForm select{
+    padding: 0.25rem 0.25rem;
+    border: thin solid;
+    border-radius: 4px;
+}

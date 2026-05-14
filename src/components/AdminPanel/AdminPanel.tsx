@@ -10,6 +10,7 @@ import AddBillForm from "../Forms/AddBillForm/AddBillForm";
 
 
 const tableHeads = ["Id", "Name", "Type", "Action"];
+
 const reducer = (state: boolean, action: AdminPanelActions): boolean => {
   switch (action.type) {
     case "SHOW_ADD_MODAL":
@@ -55,7 +56,7 @@ const AdminPanel = () => {
 
   useEffect(() => {
     let users = JSON.parse(localStorage.getItem("users") ?? '');
-    if(!users) alert("Aaj users nhi h, kal ana");
+    //will fetch from backend instead of this.....
     setUsers(users);
   }, [])
   return (

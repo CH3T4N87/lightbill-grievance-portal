@@ -3,10 +3,16 @@
     display: grid;
     grid-template-rows: auto 1fr;
 
-    div {
+    .roleBtn {
         padding: 0.5rem;
         display: flex;
-        justify-content: start;
+        justify-content: end;
         gap: 0.5rem;
     }
+}
+
+.panel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
